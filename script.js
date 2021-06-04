@@ -106,7 +106,7 @@ function selectWinner() { // if there is any matching combination then select th
         setTimeout(() => { // we'll delay to show the result
             playboard.classList.remove("show");
             resultBox.classList.add("show");
-        }, 300); // 300 ms delay.
+        }, 700); // 700 ms delay.
         // lets show the result box with the winner sign
 
         wonText.innerHTML = `player <p>${playerSign}</p> won the game!`;
@@ -120,7 +120,7 @@ function selectWinner() { // if there is any matching combination then select th
             setTimeout(() => { // we'll delay to show the result
                 playboard.classList.remove("show");
                 resultBox.classList.add("show");
-            }, 300); // 300 ms delay.
+            }, 700); // 700 ms delay.
             // lets show the result box with the winner sign
 
             wonText.innerHTML = `Match has been drawn!`;
