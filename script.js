@@ -3,6 +3,8 @@ const selectBox = document.querySelector(".select-box"),
     selectXbtn = selectBox.querySelector(".playerX"),
     selectObtn = selectBox.querySelector(".playerO"),
     playboard = document.querySelector(".play-board"),
+    xturn=playboard.querySelector(".Xturn"),    
+    oturn=playboard.querySelector(".Oturn"),
     allBox = document.querySelectorAll("section span"),
     players = document.querySelector(".players"),
     resultBox = document.querySelector(".result-box"),
@@ -18,9 +20,11 @@ window.onload = () => { //once window loaded.
         playboard.classList.add("show"); // show the playboard section on clicking playerX button.
     }
     selectObtn.onclick = () => {
+        xturn.innerHTML=`O's turn`;
+        oturn.innerHTML=`X's turn`;
         selectBox.classList.add("hide"); // hide the select box on clicking playerO button.
         playboard.classList.add("show"); // show the playboard section on clicking playerO button.
-        players.setAttribute("class", "players active player");
+        players.setAttribute("class", "players player");
     }
 }
 
@@ -73,11 +77,12 @@ function bot(runBot) {
             }
             else {
                 allBox[randomBox].innerHTML = `<i class="${playerOIcon}"></i>`; // adding circle icon tag inside user clicked element.
-                players.classList.remove("active");
                 playerSign = "O";
+                players.classList.remove("active");
                 allBox[randomBox].setAttribute("id", playerSign);
             }
-            selectWinner(); // calling the winner function. 
+            selectWinner(); // calling the winner function.
+             
         }
         allBox[randomBox].style.pointerEvents = "none"; // once bot selects any unselected  box then user will not be able to select that box.
         playboard.style.pointerEvents = "auto"; // once user selects the box then user can't select any other box until bot selects.
@@ -86,7 +91,7 @@ function bot(runBot) {
     }
 }
 
-// let work on selecting the winner.
+// lets work on selecting the winner.
 
 function getId(idname) {
     return document.querySelector(".box" + idname).id; // returning id name.
